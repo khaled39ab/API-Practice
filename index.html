@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    <h1>JSON</h1>
+    <h2>JavaScript Object Notation</h2>
+
+    <script>
+
+        const user = { id: 125, name: "Naime"};
+        const userJSON = JSON.stringify(user);
+        console.log(userJSON);
+
+        const userFromJSON = JSON.parse (userJSON);
+        console.log(userFromJSON);
+
+        const student = {
+            id: 45,
+            name: "Jalal",
+            class: "Ten",
+            parent: {
+                name: "Jolil",
+                address: "24 janina Road",
+                phone: 01303245745
+            }
+        }
+        const studentJSON = JSON.stringify (student);
+        console.log(studentJSON);
+
+        const studentFromJSON = JSON.parse (studentJSON);
+        console.log(studentFromJSON);
+        
+    </script>
+</body>
+</html>
