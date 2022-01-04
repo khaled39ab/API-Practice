@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+
+<body>
+    <h1>JSON</h1>
+    <h2>JavaScript Object Notation</h2>
+    <br>
+    <h2>Username:</h2>
+    <ul id="userContainer">
+
+    </ul>
+
+    <script>
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(json => displayUsername(json))
+
+        function displayUsername(users) {
+            const usernames = users.map(user => user.username);
+            // console.log(usernames);
+            const ul = document.getElementById("userContainer");
+
+            for (let i = 0; i < usernames.length; i++) {
+                const user = usernames[i];
+                // console.log(user.username);
+                const li = document.createElement("li");
+                li.innerText = user;
+                ul.appendChild(li);
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
