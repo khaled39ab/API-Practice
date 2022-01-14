@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>User Photo</title>
+</head>
+
+<body>
+    <h2> Our user's photo</h2>
+    <div id="div" class="row"></div>
+
+    <script>
+        // // Single element 
+        // const url = "https://jsonplaceholder.typicode.com/photos";
+        // fetch (url)
+        //     .then (res => res.json())
+        //     .then (data => userPhoto(data[0]))
+
+        // function userPhoto (users){         
+        //     const div = document.getElementById ("div");
+        //     for (let i = 0; i < 8; i++) {
+        //         const user = users[i];
+        //         console.log(user);
+        //         div.innerHTML += `
+        //         <div class ="card col-3 m-1 mx-auto">
+        //             <img class= "card-img-top" src = "${users.thumbnailUrl}">
+        //             <div class = "card-body">
+        //                 <h5 class="card-title">${users.id}. ${users.title}</h5> 
+        //                 <p>${users.url}</p>
+        //             </div>
+        //         </div>
+        //     `        
+        //     }
+        // }
+
+        let c = 0;
+        const url = "https://jsonplaceholder.typicode.com/photos";
+        fetch(url)
+            .then(res => res.json())
+            .then(users => {
+                const div = document.getElementById("div");
+                for (let i = 0; i < 8; i++) {
+                    const user = users[i];
+                    console.log(user);
+                    div.innerHTML += `
+                <div class ="card col-3 m-1 mx-auto">
+                    <img class= "card-img-top" src = "${users[c].thumbnailUrl}">
+                    <div class = "card-body">
+                        <h5 class="card-title">${users[c].id}. ${users[c].title}</h5> 
+                        <p>${users[c].url}</p>
+                    </div>
+                </div>
+            `
+                    c = c + 1;
+                }
+            })
+            .catch(error => console.log(error))
+
+    </script>
+</body>
+
+</html>
