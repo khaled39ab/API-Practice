@@ -25,12 +25,12 @@
 
         function displayUsername(users) {
             const usernames = users.map(user => user.username);
-            // console.log(usernames);
+            console.log(usernames);
             const ul = document.getElementById("userContainer");
 
             for (let i = 0; i < usernames.length; i++) {
                 const user = usernames[i];
-                // console.log(user.username);
+                console.log(user);
                 const li = document.createElement("li");
                 li.innerText = user;
                 ul.appendChild(li);

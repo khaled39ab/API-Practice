@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Todo Course</title>
+
+    <style>
+        #nextBtn {
+            background-color: rgb(68, 114, 114);
+            /* Green */
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: center;
+            color: rgb(2, 54, 54);
+        }
+
+        .btnGroup {
+            text-align: center;
+        }
+
+        #pass {
+            color: green;
+        }
+
+        #fail {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Result of Every Student</h2>
+    <h3>Random Todo Course</h3>
+    <div id="result">
+
+    </div>
+    <div class="btnGroup">
+        <button id="nextBtn">Next</button>
+    </div>
+
+    <script>
+       
+        const url = "https://jsonplaceholder.typicode.com/todos";
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displayTodo(data))
+            .catch(error => console.log(error))
+
+        function displayTodo(task) {
+            let stu = 0;
+            const display = document.getElementById("result");
+            for (let i = 0; i < 1; i++) {
+                const todo = task[i];
+                console.log( todo);
+
+                display.innerHTML += `
+                        <h1>Student Id: ${task[stu].id} Todo: ${task[stu].title}</h1>
+                        ${(() => {
+                        if (task[stu].completed) return '<h1 id="pass">Passed</h1>';
+                        return '<h1 id="fail">Failed</h1>';
+                    })()}
+                    `
+                // <h2>${ todo.completed == true ? "Passed" : "Failed" }</h2>
+                stu = stu + 1;
+                console.log("Stu:" + stu);
+            }
+        } 
+        document.getElementById ('nextBtn').addEventListener ("click", displayTodo());
+
+    </script>
+
+</body>
+
+</html>

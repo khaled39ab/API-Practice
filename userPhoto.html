@@ -48,15 +48,15 @@
                     const user = users[i];
                     console.log(user);
                     div.innerHTML += `
-                <div class ="card col-3 m-1 mx-auto">
-                    <img class= "card-img-top" src = "${users[c].thumbnailUrl}">
-                    <div class = "card-body">
-                        <h5 class="card-title">${users[c].id}. ${users[c].title}</h5> 
-                        <p>${users[c].url}</p>
-                    </div>
-                </div>
-            `
-                    c = c + 1;
+                        <div class ="card col-3 m-1 mx-auto">
+                            <img class= "card-img-top" src = "${users[c].thumbnailUrl}">
+                            <div class = "card-body">
+                                <h5 class="card-title">${users[c].id}. ${users[c].title}</h5> 
+                                <p>${users[c].url}</p>
+                            </div>
+                        </div>
+                    `
+                    c += 1;
                 }
             })
             .catch(error => console.log(error))
